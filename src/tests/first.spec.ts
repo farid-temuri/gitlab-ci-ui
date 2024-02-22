@@ -15,11 +15,14 @@ const checkYaml = ([testName,yamlStr,res]:[testName:string,yamlStr:string,res: u
 }
 
 const yamlAssertion: [string,string,unknown][] = [
-  [ 'parses couple stages', `
+  [ 'parses couple stages',
+  `
   stages:
     - build
     - test
-  `, {stages:[ 'build', 'test' ]}  ],
+  `,
+    { stages: [ 'build', 'test' ] }
+  ],
   [ 'parses empty stages', `
   stages:
   `, { stages: null } ],
