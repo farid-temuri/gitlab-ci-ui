@@ -1,4 +1,4 @@
-import { defatultStages } from '../../index'
+import { defatultStages } from '@/constants'
 
 const getStages = ( parsedStages?: string[] ) => {
 	const res = [...defatultStages]
