@@ -12,7 +12,6 @@ const getDefaults = (
 ): Defaults | null => {
   if ( !isObject( defaults ) ) return null;
 
-
   if ( !Object.keys( defaults ).filter( ( key ) => !keywordsWithDefault.map( String ).includes( key ) ).length ) {
     return defaults // HAS keys that we don't need
   }

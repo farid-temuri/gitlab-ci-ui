@@ -1,3 +1,5 @@
+import { z } from 'zod'
+
 const globalKeywords = [
 	'default',
 	'include',
@@ -58,6 +60,23 @@ const keywordsWithDefault = [
 	'timeout', // doesn't work due to this issue https://gitlab.com/gitlab-org/gitlab/-/issues/213634
 ] as const
 
+export const defaultsSchema =  z.object( {
+	after_script: z.array( z.string() ),
+	artifacts: z.object( {
+		paths: z.array(z.string()),
+		exclude: z.array( z.string() ),
+		expire_in: z.string() ,
+		expose_as: z.string() ,
+		name: z.string() ,
+		untracked: z.boolean() ,
+		when: z.string() ,
+		public: z.boolean() ,
+		reports: z.object( {
+			// TODO ...https://docs.gitlab.com/ee/ci/yaml/artifacts_reports.html add later 
+		}),
+	}
+	)
+})
 
 export {
 	keywordsWithDefault,

@@ -1,7 +1,10 @@
 import { defatultStages } from '@/constants'
 
 const getStages = ( parsedStages?: string[] ) => {
-	const res = [...defatultStages]
+	const res = [ ...defatultStages ]
+	
+	if ( !parsedStages ) return res
+	
 	parsedStages.forEach( ( parsedStage ) => {
 		if ( res.includes( parsedStage ) ) {
 			return

@@ -1,11 +1,16 @@
 import { UnknownRecord } from "type-fest"
 import { load } from 'js-yaml'
 import { getDefaults, getStages } from "./utils"
+import { GitlabCofig } from "./types"
 
 const parseGitlabConfig = ( yml: string ): UnknownRecord => {
-	const parsedYml = load( yml )
-	const stages = getStages(parsedYml.stages)
-	const defaults = getDefaults(parsedYml.default)
+	
+console.log(load(yml));
+
+	const validated = GitlabCofig.parse(load(yml))
+	const stages = getStages(validated.stages)
+	const defaults = getDefaults(validated.default)
+	
 	return {
 		defaults,
 		stages

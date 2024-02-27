@@ -10,6 +10,7 @@
 			"allowSyntheticDefaultImports": true,
 			"declaration": false,
 			"outDir": "dist",
+			"strict": true,
 			"paths": {
 				"@/*": ["./src/*"]
 			}
